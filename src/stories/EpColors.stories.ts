@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta = {
-  title: 'Foundation/Colors',
+  title: 'Foundations',
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',

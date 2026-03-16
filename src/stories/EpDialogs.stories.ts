@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta = {
-  title: 'Components/Dialogs & Overlays',
+  title: 'Containment',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },
 }

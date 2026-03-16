@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta = {
-  title: 'Components/Chips & Badges',
+  title: 'Feedback',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },
 }

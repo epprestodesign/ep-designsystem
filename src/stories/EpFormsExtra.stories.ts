@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta = {
-  title: 'Form Inputs/Extra',
+  title: 'Form Inputs & Controls',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },
 }

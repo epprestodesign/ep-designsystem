@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import { VBtn } from 'vuetify/components'
 
 const meta: Meta<typeof VBtn> = {
-  title: 'Foundation/Button',
+  title: 'Containment/Buttons',
   component: VBtn,
   tags: ['autodocs'],
   argTypes: {

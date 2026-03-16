@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta = {
-  title: 'Components/Navigation',
+  title: 'Navigation',
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },
 }
@@ -45,48 +45,6 @@ export const AppBar: Story = {
             <v-list-item prepend-icon="mdi-view-grid-outline" title="Templates" value="templates" color="primary" />
           </v-list>
         </v-navigation-drawer>
-      </div>
-    `,
-  }),
-}
-
-export const Tabs: Story = {
-  render: () => ({
-    data: () => ({ tab: 'overview' }),
-    template: `
-      <div style="padding:24px;">
-        <p class="text-overline text-primary mb-4">Default Tabs</p>
-        <v-tabs v-model="tab" color="primary" class="mb-6">
-          <v-tab value="overview">Overview</v-tab>
-          <v-tab value="components">Components</v-tab>
-          <v-tab value="tokens">Tokens</v-tab>
-          <v-tab value="guidelines">Guidelines</v-tab>
-        </v-tabs>
-
-        <p class="text-overline text-primary mb-4">Tabs with Icons</p>
-        <v-tabs color="primary" class="mb-6">
-          <v-tab prepend-icon="mdi-home-outline" value="home">Home</v-tab>
-          <v-tab prepend-icon="mdi-palette-outline" value="design">Design</v-tab>
-          <v-tab prepend-icon="mdi-code-tags" value="code">Code</v-tab>
-          <v-tab prepend-icon="mdi-test-tube" value="test" disabled>Testing</v-tab>
-        </v-tabs>
-
-        <p class="text-overline text-primary mb-4">Filled Tabs</p>
-        <v-tabs color="primary" bg-color="primary-lighten-2" class="mb-6" rounded="lg">
-          <v-tab value="all">All</v-tab>
-          <v-tab value="active">Active</v-tab>
-          <v-tab value="archived">Archived</v-tab>
-        </v-tabs>
-
-        <p class="text-overline text-primary mb-4">Vertical Tabs</p>
-        <div class="d-flex" style="height:200px;">
-          <v-tabs direction="vertical" color="primary">
-            <v-tab value="profile" prepend-icon="mdi-account-outline">Profile</v-tab>
-            <v-tab value="security" prepend-icon="mdi-lock-outline">Security</v-tab>
-            <v-tab value="billing" prepend-icon="mdi-credit-card-outline">Billing</v-tab>
-            <v-tab value="notifications" prepend-icon="mdi-bell-outline">Notifications</v-tab>
-          </v-tabs>
-        </div>
       </div>
     `,
   }),
@@ -197,6 +155,48 @@ export const Stepper: Story = {
           </div>
         </v-stepper>
       </v-container>
+    `,
+  }),
+}
+
+export const Tabs: Story = {
+  render: () => ({
+    data: () => ({ tab: 'overview' }),
+    template: `
+      <div style="padding:24px;">
+        <p class="text-overline text-primary mb-4">Default Tabs</p>
+        <v-tabs v-model="tab" color="primary" class="mb-6">
+          <v-tab value="overview">Overview</v-tab>
+          <v-tab value="components">Components</v-tab>
+          <v-tab value="tokens">Tokens</v-tab>
+          <v-tab value="guidelines">Guidelines</v-tab>
+        </v-tabs>
+
+        <p class="text-overline text-primary mb-4">Tabs with Icons</p>
+        <v-tabs color="primary" class="mb-6">
+          <v-tab prepend-icon="mdi-home-outline" value="home">Home</v-tab>
+          <v-tab prepend-icon="mdi-palette-outline" value="design">Design</v-tab>
+          <v-tab prepend-icon="mdi-code-tags" value="code">Code</v-tab>
+          <v-tab prepend-icon="mdi-test-tube" value="test" disabled>Testing</v-tab>
+        </v-tabs>
+
+        <p class="text-overline text-primary mb-4">Filled Tabs</p>
+        <v-tabs color="primary" bg-color="primary-lighten-2" class="mb-6" rounded="lg">
+          <v-tab value="all">All</v-tab>
+          <v-tab value="active">Active</v-tab>
+          <v-tab value="archived">Archived</v-tab>
+        </v-tabs>
+
+        <p class="text-overline text-primary mb-4">Vertical Tabs</p>
+        <div class="d-flex" style="height:200px;">
+          <v-tabs direction="vertical" color="primary">
+            <v-tab value="profile" prepend-icon="mdi-account-outline">Profile</v-tab>
+            <v-tab value="security" prepend-icon="mdi-lock-outline">Security</v-tab>
+            <v-tab value="billing" prepend-icon="mdi-credit-card-outline">Billing</v-tab>
+            <v-tab value="notifications" prepend-icon="mdi-bell-outline">Notifications</v-tab>
+          </v-tabs>
+        </div>
+      </div>
     `,
   }),
 }

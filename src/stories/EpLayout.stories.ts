@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta = {
-  title: 'Components/Layout & Grid',
+  title: 'Layout',
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },
 }

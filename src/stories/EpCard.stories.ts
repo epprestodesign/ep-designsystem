@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import { VCard, VCardTitle, VCardSubtitle, VCardText, VCardActions, VBtn, VChip } from 'vuetify/components'
 
 const meta: Meta<typeof VCard> = {
-  title: 'Foundation/Card',
+  title: 'Containment',
   component: VCard,
   tags: ['autodocs'],
   argTypes: {

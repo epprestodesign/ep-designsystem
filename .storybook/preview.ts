@@ -14,6 +14,23 @@ setup((app) => {
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [
+          'Foundations',
+          'Containment',
+          'Navigation',
+          'Form Inputs & Controls',
+          'Data Display',
+          'Layout',
+          'Selection',
+          'Feedback',
+          'Pickers',
+        ],
+        locales: 'en-US',
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

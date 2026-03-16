@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta = {
-  title: 'Navigation/Extra',
+  title: 'Navigation',
   tags: ['autodocs'],
   parameters: { layout: 'fullscreen' },
 }
@@ -87,6 +87,50 @@ export const FloatingActionButton: Story = {
   }),
 }
 
+export const Footer: Story = {
+  render: () => ({
+    template: `
+      <v-container style="max-width:680px;">
+        <p class="text-overline text-primary mb-4">Footers</p>
+
+        <p class="text-caption text-medium-emphasis mb-2">Simple footer</p>
+        <v-footer color="surface" class="mb-4" rounded="xl">
+          <div class="d-flex justify-space-between align-center w-100">
+            <span class="text-body-2 font-weight-semibold text-primary">EP Design System</span>
+            <span class="text-caption text-medium-emphasis">© 2026 EventPipe</span>
+          </div>
+        </v-footer>
+
+        <p class="text-caption text-medium-emphasis mb-2">Full footer</p>
+        <v-footer color="secondary" class="mb-4" rounded="xl">
+          <v-row class="pa-2">
+            <v-col cols="12" sm="4">
+              <div class="text-body-1 font-weight-semibold text-white mb-2">EP Design System</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.6);">A Vuetify-based design system with EP brand theming.</div>
+            </v-col>
+            <v-col cols="6" sm="4">
+              <div class="text-caption font-weight-semibold text-white mb-2">RESOURCES</div>
+              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">Storybook</div>
+              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">GitHub</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.6);">Vuetify Docs</div>
+            </v-col>
+            <v-col cols="6" sm="4">
+              <div class="text-caption font-weight-semibold text-white mb-2">COMPANY</div>
+              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">About</div>
+              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">Contact</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.6);">Privacy</div>
+            </v-col>
+            <v-col cols="12">
+              <v-divider color="white" opacity="0.15" class="mb-3" />
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">© 2026 EventPipe. All rights reserved.</div>
+            </v-col>
+          </v-row>
+        </v-footer>
+      </v-container>
+    `,
+  }),
+}
+
 export const SpeedDial: Story = {
   render: () => ({
     template: `
@@ -140,50 +184,6 @@ export const SystemBar: Story = {
           <v-icon>mdi-checkbox-blank-outline</v-icon>
           <v-icon>mdi-close</v-icon>
         </v-system-bar>
-      </v-container>
-    `,
-  }),
-}
-
-export const Footer: Story = {
-  render: () => ({
-    template: `
-      <v-container style="max-width:680px;">
-        <p class="text-overline text-primary mb-4">Footers</p>
-
-        <p class="text-caption text-medium-emphasis mb-2">Simple footer</p>
-        <v-footer color="surface" class="mb-4" rounded="xl">
-          <div class="d-flex justify-space-between align-center w-100">
-            <span class="text-body-2 font-weight-semibold text-primary">EP Design System</span>
-            <span class="text-caption text-medium-emphasis">© 2026 EventPipe</span>
-          </div>
-        </v-footer>
-
-        <p class="text-caption text-medium-emphasis mb-2">Full footer</p>
-        <v-footer color="secondary" class="mb-4" rounded="xl">
-          <v-row class="pa-2">
-            <v-col cols="12" sm="4">
-              <div class="text-body-1 font-weight-semibold text-white mb-2">EP Design System</div>
-              <div class="text-caption" style="color:rgba(255,255,255,0.6);">A Vuetify-based design system with EP brand theming.</div>
-            </v-col>
-            <v-col cols="6" sm="4">
-              <div class="text-caption font-weight-semibold text-white mb-2">RESOURCES</div>
-              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">Storybook</div>
-              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">GitHub</div>
-              <div class="text-caption" style="color:rgba(255,255,255,0.6);">Vuetify Docs</div>
-            </v-col>
-            <v-col cols="6" sm="4">
-              <div class="text-caption font-weight-semibold text-white mb-2">COMPANY</div>
-              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">About</div>
-              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">Contact</div>
-              <div class="text-caption" style="color:rgba(255,255,255,0.6);">Privacy</div>
-            </v-col>
-            <v-col cols="12">
-              <v-divider color="white" opacity="0.15" class="mb-3" />
-              <div class="text-caption" style="color:rgba(255,255,255,0.4);">© 2026 EventPipe. All rights reserved.</div>
-            </v-col>
-          </v-row>
-        </v-footer>
       </v-container>
     `,
   }),
