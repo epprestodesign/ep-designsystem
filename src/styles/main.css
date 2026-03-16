@@ -1,0 +1,9 @@
+*,
+*::before,
+*::after {
+  font-family: 'Poppins', sans-serif;
+}
+
+.v-application {
+  font-family: 'Poppins', sans-serif !important;
+}
