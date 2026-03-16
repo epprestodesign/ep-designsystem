@@ -123,7 +123,7 @@ export const CheckboxesAndRadios: Story = {
         <p class="text-overline text-primary mb-2">Checkboxes</p>
         <v-row class="mb-4">
           <v-col cols="12" sm="4">
-            <v-checkbox color="primary" label="Checked" model-value="true" />
+            <v-checkbox color="primary" label="Checked" :model-value="true" />
           </v-col>
           <v-col cols="12" sm="4">
             <v-checkbox color="primary" label="Unchecked" :model-value="false" />
@@ -132,10 +132,10 @@ export const CheckboxesAndRadios: Story = {
             <v-checkbox color="primary" label="Disabled" disabled />
           </v-col>
           <v-col cols="12" sm="4">
-            <v-checkbox color="error" label="Error" error model-value="true" />
+            <v-checkbox color="error" label="Error" error :model-value="true" />
           </v-col>
           <v-col cols="12" sm="4">
-            <v-checkbox color="success" label="Success" model-value="true" />
+            <v-checkbox color="success" label="Success" :model-value="true" />
           </v-col>
           <v-col cols="12" sm="4">
             <v-checkbox color="primary" label="Indeterminate" :indeterminate="true" />
@@ -157,11 +157,11 @@ export const CheckboxesAndRadios: Story = {
 export const Switches: Story = {
   render: () => ({
     template: `
-      <v-container style="max-width:600px;">
+      <v-container style="max-width:600px; background:#ffffff; border-radius:16px; padding:24px;">
         <p class="text-overline text-primary mb-4">Switches</p>
         <v-row>
           <v-col cols="12" sm="4">
-            <v-switch color="primary" label="On" model-value="true" />
+            <v-switch color="primary" label="On" :model-value="true" />
           </v-col>
           <v-col cols="12" sm="4">
             <v-switch color="primary" label="Off" :model-value="false" />
@@ -170,10 +170,10 @@ export const Switches: Story = {
             <v-switch color="primary" label="Disabled" disabled />
           </v-col>
           <v-col cols="12" sm="6">
-            <v-switch color="primary" label="With messages" hint="Activates notifications" persistent-hint model-value="true" />
+            <v-switch color="primary" label="With messages" hint="Activates notifications" persistent-hint :model-value="true" />
           </v-col>
           <v-col cols="12" sm="6">
-            <v-switch color="success" label="Success color" model-value="true" />
+            <v-switch color="success" label="Success color" :model-value="true" />
           </v-col>
         </v-row>
       </v-container>

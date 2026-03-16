@@ -1,3 +1,5 @@
+@import '../tokens/material-colors.css';
+
 *,
 *::before,
 *::after {
@@ -6,4 +8,92 @@
 
 .v-application {
   font-family: 'Poppins', sans-serif !important;
+  background-color: #F9F9FA !important;
+}
+
+/* Typography scale — Figma EP_Material_v1, Poppins variant */
+.v-application .text-h1 { font-size: 96px !important; font-weight: 300 !important; line-height: 1.167 !important; letter-spacing: -1.5px !important; }
+.v-application .text-h2 { font-size: 60px !important; font-weight: 300 !important; line-height: 1.2 !important;   letter-spacing: -0.5px !important; }
+.v-application .text-h3 { font-size: 48px !important; font-weight: 400 !important; line-height: 1.167 !important; letter-spacing: 0 !important; }
+.v-application .text-h4 { font-size: 34px !important; font-weight: 400 !important; line-height: 1.235 !important; letter-spacing: 0.25px !important; }
+.v-application .text-h5 { font-size: 24px !important; font-weight: 400 !important; line-height: 1.334 !important; letter-spacing: 0 !important; }
+.v-application .text-h6 { font-size: 20px !important; font-weight: 600 !important; line-height: 1.6 !important;   letter-spacing: 0.15px !important; }
+.v-application .text-subtitle-1 { font-size: 16px !important; font-weight: 400 !important; line-height: 1.75 !important; letter-spacing: 0.15px !important; }
+.v-application .text-subtitle-2 { font-size: 14px !important; font-weight: 600 !important; line-height: 1.57 !important; letter-spacing: 0.1px !important; }
+.v-application .text-body-1 { font-size: 16px !important; font-weight: 400 !important; line-height: 1.5 !important;  letter-spacing: 0.15px !important; }
+.v-application .text-body-2 { font-size: 14px !important; font-weight: 400 !important; line-height: 1.43 !important; letter-spacing: 0.15px !important; }
+.v-application .text-button { font-size: 14px !important; font-weight: 600 !important; line-height: 1.75 !important; letter-spacing: 0.4px !important; text-transform: none !important; }
+.v-application .text-caption { font-size: 12px !important; font-weight: 400 !important; line-height: 1.66 !important; letter-spacing: 0.4px !important; }
+.v-application .text-overline { font-size: 12px !important; font-weight: 400 !important; line-height: 2.66 !important; letter-spacing: 1px !important; text-transform: uppercase !important; }
+
+.v-card {
+  border-color: #D7D9E4 !important;
+}
+
+/* Switch — Figma spec: EP_Material_v1 node 6564-39128
+   NOTE: v-selection-control--dirty lives on the inner .v-selection-control
+   child, NOT on the .v-switch root element. */
+
+/* Track OFF: rgba(0,0,0,0.38) when the inner control is NOT checked */
+.v-switch .v-selection-control:not(.v-selection-control--dirty) .v-switch__track {
+  background-color: rgba(0, 0, 0, 0.38) !important;
+  opacity: 1 !important;
+}
+/* Track ON: Vuetify applies bg-{color} class to the track automatically;
+   just force full opacity so it's not dimmed */
+.v-switch .v-selection-control--dirty .v-switch__track {
+  opacity: 1 !important;
+}
+/* Knob unchecked: grey/50 + Figma drop shadow rgba(0,0,0,0.12) */
+.v-switch:not(.v-input--disabled) .v-selection-control:not(.v-selection-control--dirty) .v-switch__thumb {
+  background-color: #FAFAFA !important;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.14) !important;
+}
+/* Knob checked: white */
+.v-switch:not(.v-switch--loading):not(.v-input--disabled) .v-selection-control--dirty .v-switch__thumb {
+  background-color: #FFFFFF !important;
+}
+/* Knob disabled: grey/100 */
+.v-switch.v-input--disabled .v-switch__thumb {
+  background-color: #F5F5F5 !important;
+  box-shadow: none !important;
+}
+
+.v-field__overlay,
+.v-field--variant-outlined .v-field__outline,
+.v-text-field .v-field,
+.v-select .v-field,
+.v-textarea .v-field,
+.v-autocomplete .v-field,
+.v-combobox .v-field,
+.v-file-input .v-field,
+.v-number-input .v-field {
+  background-color: #FFFFFF !important;
+}
+
+/* Alert variants — Figma EP_Material_v1 › _components/alert */
+.v-alert.v-alert--variant-tonal.v-theme--epLight[class*="bg-error"],
+.v-alert[data-v-alert-type="error"] {
+  color: var(--ep-alert-error-color) !important;
+  background-color: var(--ep-alert-error-bg) !important;
+}
+.v-alert.v-alert--variant-tonal.v-theme--epLight[class*="bg-warning"],
+.v-alert[data-v-alert-type="warning"] {
+  color: var(--ep-alert-warning-color) !important;
+  background-color: var(--ep-alert-warning-bg) !important;
+}
+.v-alert.v-alert--variant-tonal.v-theme--epLight[class*="bg-info"],
+.v-alert[data-v-alert-type="info"] {
+  color: var(--ep-alert-info-color) !important;
+  background-color: var(--ep-alert-info-bg) !important;
+}
+.v-alert.v-alert--variant-tonal.v-theme--epLight[class*="bg-success"],
+.v-alert[data-v-alert-type="success"] {
+  color: var(--ep-alert-success-color) !important;
+  background-color: var(--ep-alert-success-bg) !important;
+}
+
+/* Rating — Figma _components/rating activeFill */
+.v-rating .v-icon--active {
+  color: var(--ep-rating-active) !important;
 }

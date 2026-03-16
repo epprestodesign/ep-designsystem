@@ -39,10 +39,10 @@ const preview: Preview = {
     },
 
     backgrounds: {
-      default: 'white',
+      default: 'background',
       values: [
+        { name: 'background', value: '#F9F9FA' },
         { name: 'white', value: '#FFFFFF' },
-        { name: 'surface', value: '#F7F8FC' },
         { name: 'dark', value: '#0D0D1A' },
       ],
     },
