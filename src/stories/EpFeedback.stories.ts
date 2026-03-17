@@ -81,7 +81,7 @@ export const CircularProgress: Story = {
           </div>
           <div class="text-center">
             <v-progress-circular color="success" model-value="100" size="56" width="4">
-              <v-icon color="success">mdi-check</v-icon>
+              <v-icon color="success">check</v-icon>
             </v-progress-circular>
             <p class="text-caption mt-2">Complete</p>
           </div>
@@ -124,36 +124,6 @@ export const Skeletons: Story = {
             <v-skeleton-loader type="table" rounded="xl" />
           </v-col>
         </v-row>
-      </v-container>
-    `,
-  }),
-}
-
-export const Ratings: Story = {
-  render: () => ({
-    data: () => ({ rating: 4, halfRating: 3.5 }),
-    template: `
-      <v-container style="max-width:680px;">
-        <p class="text-overline text-primary mb-6">Ratings</p>
-
-        <div class="mb-6">
-          <p class="text-caption text-medium-emphasis mb-2">Interactive</p>
-          <v-rating v-model="rating" color="primary" active-color="primary" half-increments />
-          <p class="text-caption mt-1">Rating: {{ rating }}</p>
-        </div>
-
-        <div class="mb-6">
-          <p class="text-caption text-medium-emphasis mb-2">Read-only</p>
-          <v-rating model-value="4" color="primary" active-color="primary" readonly />
-        </div>
-
-        <div class="mb-6">
-          <p class="text-caption text-medium-emphasis mb-2">Sizes</p>
-          <v-rating model-value="4" color="primary" active-color="primary" size="x-small" readonly class="mb-2" />
-          <v-rating model-value="4" color="primary" active-color="primary" size="small" readonly class="mb-2" />
-          <v-rating model-value="4" color="primary" active-color="primary" size="default" readonly class="mb-2" />
-          <v-rating model-value="4" color="primary" active-color="primary" size="large" readonly />
-        </div>
       </v-container>
     `,
   }),

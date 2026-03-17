@@ -16,19 +16,16 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        method: 'alphabetical',
         order: [
-          'Foundations',
-          'Containment',
-          'Navigation',
-          'Form Inputs & Controls',
-          'Data Display',
-          'Layout',
-          'Selection',
-          'Feedback',
-          'Pickers',
+          'Foundations', ['ColorPalette', 'Typography', 'TypeScale'],
+          'Layout', ['Grid', 'Dividers', 'Cards', 'ExpansionPanels', 'Windows', 'Footer', 'SystemBar', 'AppBar'],
+          'Navigation', ['Breadcrumbs', 'Tabs', 'Pagination', 'Stepper', 'BottomNavigation'],
+          'Inputs', ['Switches', 'Radios', 'Sliders', 'NumberInputs', 'FileInputs', 'OTPInput', 'ColorPickers', 'DatePickers', 'TimePickers', 'ButtonToggles', 'ChipGroups', 'FullFormExample'],
+          'Data Display', ['Lists', 'Tables', 'Timeline', 'Ratings', 'Sparklines', 'DataIterators', 'VirtualScrollers'],
+          'Feedback', ['ProgressBars', 'CircularProgress', 'Skeletons'],
+          'Actions', ['FloatingActionButton', 'SpeedDial', 'Carousels', 'SlideGroups'],
+          'Images & Icons', ['Icons'],
         ],
-        locales: 'en-US',
       },
     },
     controls: {

@@ -9,48 +9,8 @@ const meta: Meta = {
 export default meta
 type Story = StoryObj
 
-export const AppBar: Story = {
-  render: () => ({
-    data: () => ({ drawer: false }),
-    template: `
-      <div style="height:280px; position:relative;">
-        <v-app-bar color="surface" elevation="0" border="b">
-          <v-app-bar-nav-icon @click="drawer = !drawer" />
-          <v-toolbar-title class="font-weight-semibold text-primary">EP Design System</v-toolbar-title>
-          <v-spacer />
-          <v-btn icon="mdi-magnify" variant="text" />
-          <v-btn icon="mdi-bell-outline" variant="text">
-            <v-badge color="error" content="3" floating>
-              <v-icon>mdi-bell-outline</v-icon>
-            </v-badge>
-          </v-btn>
-          <v-avatar color="primary" size="36" class="ml-2" style="cursor:pointer;">
-            <span class="text-caption font-weight-bold text-white">JG</span>
-          </v-avatar>
-        </v-app-bar>
-
-        <v-navigation-drawer v-model="drawer" temporary>
-          <v-list-item
-            prepend-icon="mdi-palette-outline"
-            title="EP Design System"
-            subtitle="v1.0"
-            nav
-          />
-          <v-divider />
-          <v-list nav>
-            <v-list-item prepend-icon="mdi-home-outline" title="Overview" value="overview" color="primary" />
-            <v-list-item prepend-icon="mdi-palette-swatch-outline" title="Colors" value="colors" color="primary" />
-            <v-list-item prepend-icon="mdi-format-font" title="Typography" value="typography" color="primary" />
-            <v-list-item prepend-icon="mdi-button-cursor" title="Components" value="components" color="primary" active />
-            <v-list-item prepend-icon="mdi-view-grid-outline" title="Templates" value="templates" color="primary" />
-          </v-list>
-        </v-navigation-drawer>
-      </div>
-    `,
-  }),
-}
-
 export const Breadcrumbs: Story = {
+  parameters: { layout: 'padded' },
   render: () => ({
     template: `
       <v-container style="max-width:680px;">
@@ -62,7 +22,7 @@ export const Breadcrumbs: Story = {
           :items="[
             { title: 'Home', href: '#' },
             { title: 'Components', href: '#' },
-            { title: 'Navigation', disabled: true },
+            { title: 'Components', disabled: true },
           ]"
           divider="/"
           class="mb-6 px-0"
@@ -80,7 +40,7 @@ export const Breadcrumbs: Story = {
           color="primary"
         >
           <template #divider>
-            <v-icon size="14" color="medium-emphasis">mdi-chevron-right</v-icon>
+            <v-icon size="14" color="medium-emphasis">chevron_right</v-icon>
           </template>
         </v-breadcrumbs>
       </v-container>
@@ -88,7 +48,51 @@ export const Breadcrumbs: Story = {
   }),
 }
 
+export const Tabs: Story = {
+  parameters: { layout: 'padded' },
+  render: () => ({
+    data: () => ({ tab: 'overview' }),
+    template: `
+      <div style="padding:24px;">
+        <p class="text-overline text-primary mb-4">Default Tabs</p>
+        <v-tabs v-model="tab" color="primary" class="mb-6">
+          <v-tab value="overview">Overview</v-tab>
+          <v-tab value="components">Components</v-tab>
+          <v-tab value="tokens">Tokens</v-tab>
+          <v-tab value="guidelines">Guidelines</v-tab>
+        </v-tabs>
+
+        <p class="text-overline text-primary mb-4">Tabs with Icons</p>
+        <v-tabs color="primary" class="mb-6">
+          <v-tab prepend-icon="home" value="home">Home</v-tab>
+          <v-tab prepend-icon="palette" value="design">Design</v-tab>
+          <v-tab prepend-icon="code" value="code">Code</v-tab>
+          <v-tab prepend-icon="science" value="test" disabled>Testing</v-tab>
+        </v-tabs>
+
+        <p class="text-overline text-primary mb-4">Filled Tabs</p>
+        <v-tabs color="primary" bg-color="primary-lighten-2" class="mb-6" rounded="lg">
+          <v-tab value="all">All</v-tab>
+          <v-tab value="active">Active</v-tab>
+          <v-tab value="archived">Archived</v-tab>
+        </v-tabs>
+
+        <p class="text-overline text-primary mb-4">Vertical Tabs</p>
+        <div class="d-flex" style="height:200px;">
+          <v-tabs direction="vertical" color="primary">
+            <v-tab value="profile" prepend-icon="account_circle">Profile</v-tab>
+            <v-tab value="security" prepend-icon="lock">Security</v-tab>
+            <v-tab value="billing" prepend-icon="credit_card">Billing</v-tab>
+            <v-tab value="notifications" prepend-icon="notifications_none">Notifications</v-tab>
+          </v-tabs>
+        </div>
+      </div>
+    `,
+  }),
+}
+
 export const Pagination: Story = {
+  parameters: { layout: 'padded' },
   render: () => ({
     data: () => ({ page: 3 }),
     template: `
@@ -115,6 +119,7 @@ export const Pagination: Story = {
 }
 
 export const Stepper: Story = {
+  parameters: { layout: 'padded' },
   render: () => ({
     data: () => ({ step: 2 }),
     template: `
@@ -159,43 +164,33 @@ export const Stepper: Story = {
   }),
 }
 
-export const Tabs: Story = {
+export const BottomNavigation: Story = {
   render: () => ({
-    data: () => ({ tab: 'overview' }),
+    data: () => ({ nav: 'home' }),
     template: `
-      <div style="padding:24px;">
-        <p class="text-overline text-primary mb-4">Default Tabs</p>
-        <v-tabs v-model="tab" color="primary" class="mb-6">
-          <v-tab value="overview">Overview</v-tab>
-          <v-tab value="components">Components</v-tab>
-          <v-tab value="tokens">Tokens</v-tab>
-          <v-tab value="guidelines">Guidelines</v-tab>
-        </v-tabs>
-
-        <p class="text-overline text-primary mb-4">Tabs with Icons</p>
-        <v-tabs color="primary" class="mb-6">
-          <v-tab prepend-icon="mdi-home-outline" value="home">Home</v-tab>
-          <v-tab prepend-icon="mdi-palette-outline" value="design">Design</v-tab>
-          <v-tab prepend-icon="mdi-code-tags" value="code">Code</v-tab>
-          <v-tab prepend-icon="mdi-test-tube" value="test" disabled>Testing</v-tab>
-        </v-tabs>
-
-        <p class="text-overline text-primary mb-4">Filled Tabs</p>
-        <v-tabs color="primary" bg-color="primary-lighten-2" class="mb-6" rounded="lg">
-          <v-tab value="all">All</v-tab>
-          <v-tab value="active">Active</v-tab>
-          <v-tab value="archived">Archived</v-tab>
-        </v-tabs>
-
-        <p class="text-overline text-primary mb-4">Vertical Tabs</p>
-        <div class="d-flex" style="height:200px;">
-          <v-tabs direction="vertical" color="primary">
-            <v-tab value="profile" prepend-icon="mdi-account-outline">Profile</v-tab>
-            <v-tab value="security" prepend-icon="mdi-lock-outline">Security</v-tab>
-            <v-tab value="billing" prepend-icon="mdi-credit-card-outline">Billing</v-tab>
-            <v-tab value="notifications" prepend-icon="mdi-bell-outline">Notifications</v-tab>
-          </v-tabs>
+      <div style="height:320px; position:relative; background:#F7F8FC; overflow:hidden;">
+        <div style="padding:24px;">
+          <p class="text-overline text-primary mb-2">Bottom Navigation</p>
+          <p class="text-body-2 text-medium-emphasis">Active: {{ nav }}</p>
         </div>
+        <v-bottom-navigation v-model="nav" color="primary" elevation="4" style="position:absolute; bottom:0; width:100%;">
+          <v-btn value="home">
+            <v-icon>home</v-icon>
+            <span>Home</span>
+          </v-btn>
+          <v-btn value="search">
+            <v-icon>search</v-icon>
+            <span>Explore</span>
+          </v-btn>
+          <v-btn value="bookmarks">
+            <v-icon>bookmark_border</v-icon>
+            <span>Saved</span>
+          </v-btn>
+          <v-btn value="profile">
+            <v-icon>person</v-icon>
+            <span>Profile</span>
+          </v-btn>
+        </v-bottom-navigation>
       </div>
     `,
   }),

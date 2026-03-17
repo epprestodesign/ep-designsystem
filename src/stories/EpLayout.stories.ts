@@ -53,6 +53,7 @@ export const Grid: Story = {
 }
 
 export const Dividers: Story = {
+  parameters: { layout: 'padded' },
   render: () => ({
     template: `
       <v-container style="max-width:680px;">
@@ -134,7 +135,7 @@ export const Cards: Story = {
           <v-col cols="12" md="4">
             <v-card color="primary" rounded="xl">
               <v-card-text class="pa-6">
-                <v-icon color="white" size="32" class="mb-4">mdi-rocket-launch-outline</v-icon>
+                <v-icon color="white" size="32" class="mb-4">rocket_launch</v-icon>
                 <h3 class="text-h6 font-weight-semibold text-white mb-2">Upgrade to Pro</h3>
                 <p class="text-body-2 mb-6" style="color:rgba(255,255,255,0.8)">
                   Unlock all design tokens, advanced theming, and unlimited components.
@@ -150,55 +151,222 @@ export const Cards: Story = {
     `,
     setup() {
       const stats = [
-        { label: 'Components', value: '48', change: 12, icon: 'mdi-button-cursor', color: 'primary' },
-        { label: 'Design Tokens', value: '124', change: 8, icon: 'mdi-palette-outline', color: 'accent' },
-        { label: 'Stories', value: '96', change: 24, icon: 'mdi-book-open-outline', color: 'success' },
-        { label: 'Open Issues', value: '3', change: -40, icon: 'mdi-alert-circle-outline', color: 'warning' },
+        { label: 'Components', value: '48', change: 12, icon: 'ads_click', color: 'primary' },
+        { label: 'Design Tokens', value: '124', change: 8, icon: 'palette', color: 'accent' },
+        { label: 'Stories', value: '96', change: 24, icon: 'menu_book', color: 'success' },
+        { label: 'Open Issues', value: '3', change: -40, icon: 'error', color: 'warning' },
       ]
       const activity = [
-        { title: 'Color tokens updated', time: '2 min ago', icon: 'mdi-palette-outline' },
-        { title: 'Button variants added', time: '1 hour ago', icon: 'mdi-button-cursor' },
-        { title: 'Typography reviewed', time: 'Yesterday', icon: 'mdi-format-font' },
-        { title: 'Dark theme released', time: '3 days ago', icon: 'mdi-weather-night' },
+        { title: 'Color tokens updated', time: '2 min ago', icon: 'palette' },
+        { title: 'Button variants added', time: '1 hour ago', icon: 'ads_click' },
+        { title: 'Typography reviewed', time: 'Yesterday', icon: 'font_download' },
+        { title: 'Dark theme released', time: '3 days ago', icon: 'nightlight' },
       ]
       return { stats, activity }
     },
   }),
 }
 
-export const Timeline: Story = {
+export const ExpansionPanels: Story = {
+  parameters: { layout: 'padded' },
   render: () => ({
     template: `
       <v-container style="max-width:680px;">
-        <p class="text-overline text-primary mb-4">Timeline</p>
-        <v-timeline side="end" density="compact" color="primary">
-          <v-timeline-item
-            v-for="event in events"
-            :key="event.title"
-            :dot-color="event.color"
-            size="small"
-          >
-            <template #opposite>
-              <span class="text-caption text-medium-emphasis">{{ event.date }}</span>
-            </template>
-            <v-card color="surface" rounded="lg">
-              <v-card-text class="pa-4">
-                <div class="text-body-2 font-weight-semibold mb-1">{{ event.title }}</div>
-                <div class="text-caption text-medium-emphasis">{{ event.desc }}</div>
-              </v-card-text>
-            </v-card>
-          </v-timeline-item>
-        </v-timeline>
+        <p class="text-overline text-primary mb-4">Expansion Panels (Accordion)</p>
+        <v-expansion-panels color="primary" rounded="xl">
+          <v-expansion-panel
+            v-for="faq in faqs"
+            :key="faq.q"
+            :title="faq.q"
+            :text="faq.a"
+            rounded="xl"
+          />
+        </v-expansion-panels>
       </v-container>
     `,
     setup() {
-      const events = [
-        { title: 'Design System Launched', desc: 'Initial release with core components', date: 'Mar 2025', color: 'primary' },
-        { title: 'Dark Theme Added', desc: 'Full dark mode support with epDark theme', date: 'Apr 2025', color: 'secondary' },
-        { title: 'Storybook Integrated', desc: 'All components documented in Storybook 8', date: 'Jun 2025', color: 'accent' },
-        { title: 'Poppins Font', desc: 'Switched to Poppins as the brand typeface', date: 'Mar 2026', color: 'success' },
+      const faqs = [
+        { q: 'What is the EP Design System?', a: 'A comprehensive UI component library built on Vuetify 3 with a custom brand theme, documented in Storybook for easy prototyping and development.' },
+        { q: 'What is the primary brand color?', a: 'The primary color is #3660F1 — a vibrant blue used for main CTAs, focus states, and interactive elements throughout the application.' },
+        { q: 'What font does the design system use?', a: 'Poppins — a geometric sans-serif typeface from Google Fonts. It is loaded across all weights from 300 to 700.' },
+        { q: 'Is dark mode supported?', a: 'Yes. The design system includes an epDark theme with a full dark color palette. Toggle between epLight and epDark using the Vuetify theme API.' },
+        { q: 'How do I use these components in my app?', a: 'Import Vuetify with the EP theme plugin and use any v-* component. All components inherit brand tokens automatically.' },
       ]
-      return { events }
+      return { faqs }
     },
+  }),
+}
+
+export const Windows: Story = {
+  parameters: { layout: 'padded' },
+  render: () => ({
+    data: () => ({ window: 0 }),
+    template: `
+      <v-container style="max-width:680px;">
+        <p class="text-overline text-primary mb-4">Windows (Transitions)</p>
+
+        <v-card color="surface" rounded="xl">
+          <v-window v-model="window">
+            <v-window-item v-for="item in items" :key="item.title">
+              <v-card-text class="pa-8 text-center" style="min-height:220px;">
+                <v-icon :color="item.color" size="56" class="mb-4">{{ item.icon }}</v-icon>
+                <h3 class="text-h6 font-weight-semibold mb-2">{{ item.title }}</h3>
+                <p class="text-body-2 text-medium-emphasis">{{ item.desc }}</p>
+              </v-card-text>
+            </v-window-item>
+          </v-window>
+
+          <v-divider />
+
+          <v-card-actions class="pa-4">
+            <v-btn variant="text" :disabled="window === 0" @click="window--">Back</v-btn>
+            <v-spacer />
+            <div class="d-flex ga-1">
+              <v-icon
+                v-for="n in items.length"
+                :key="n"
+                :color="window === n - 1 ? 'primary' : 'grey-lighten-2'"
+                size="10"
+              >circle</v-icon>
+            </div>
+            <v-spacer />
+            <v-btn color="primary" :disabled="window === items.length - 1" @click="window++">Next</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-container>
+    `,
+    setup() {
+      const items = [
+        { title: 'Welcome to EP Design System', desc: 'A Vuetify-powered design system with EP brand theming, documented in Storybook.', icon: 'palette', color: 'primary' },
+        { title: 'Pick your colors', desc: 'Primary color #3660F1 is applied globally. All components inherit brand tokens automatically.', icon: 'colorize', color: 'accent' },
+        { title: 'Choose your font', desc: 'Poppins is set as the default typeface across the entire application.', icon: 'font_download', color: 'secondary' },
+        { title: "You're all set!", desc: 'Start building your application with confidence using the EP Design System.', icon: 'check_circle', color: 'success' },
+      ]
+      return { items }
+    },
+  }),
+}
+
+export const Footer: Story = {
+  parameters: { layout: 'padded' },
+  render: () => ({
+    template: `
+      <v-container style="max-width:680px;">
+        <p class="text-overline text-primary mb-4">Footers</p>
+
+        <p class="text-caption text-medium-emphasis mb-2">Simple footer</p>
+        <v-footer color="surface" class="mb-4" rounded="xl">
+          <div class="d-flex justify-space-between align-center w-100">
+            <span class="text-body-2 font-weight-semibold text-primary">EP Design System</span>
+            <span class="text-caption text-medium-emphasis">© 2026 EventPipe</span>
+          </div>
+        </v-footer>
+
+        <p class="text-caption text-medium-emphasis mb-2">Full footer</p>
+        <v-footer color="secondary" class="mb-4" rounded="xl">
+          <v-row class="pa-2">
+            <v-col cols="12" sm="4">
+              <div class="text-body-1 font-weight-semibold text-white mb-2">EP Design System</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.6);">A Vuetify-based design system with EP brand theming.</div>
+            </v-col>
+            <v-col cols="6" sm="4">
+              <div class="text-caption font-weight-semibold text-white mb-2">RESOURCES</div>
+              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">Storybook</div>
+              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">GitHub</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.6);">Vuetify Docs</div>
+            </v-col>
+            <v-col cols="6" sm="4">
+              <div class="text-caption font-weight-semibold text-white mb-2">COMPANY</div>
+              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">About</div>
+              <div class="text-caption mb-1" style="color:rgba(255,255,255,0.6);">Contact</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.6);">Privacy</div>
+            </v-col>
+            <v-col cols="12">
+              <v-divider color="white" opacity="0.15" class="mb-3" />
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">© 2026 EventPipe. All rights reserved.</div>
+            </v-col>
+          </v-row>
+        </v-footer>
+      </v-container>
+    `,
+  }),
+}
+
+export const SystemBar: Story = {
+  parameters: { layout: 'padded' },
+  render: () => ({
+    template: `
+      <v-container style="max-width:680px;">
+        <p class="text-overline text-primary mb-4">System Bars</p>
+
+        <p class="text-caption text-medium-emphasis mb-2">Default</p>
+        <v-system-bar class="mb-4" color="surface-variant" rounded="lg">
+          <v-icon>wifi</v-icon>
+          <v-icon>signal_cellular_alt</v-icon>
+          <v-icon>battery_full</v-icon>
+          <v-spacer />
+          <span class="text-caption">9:41 AM</span>
+        </v-system-bar>
+
+        <p class="text-caption text-medium-emphasis mb-2">Primary</p>
+        <v-system-bar color="primary" class="mb-4" rounded="lg">
+          <v-icon color="white">wifi</v-icon>
+          <v-spacer />
+          <span class="text-caption text-white">9:41 AM</span>
+          <v-icon color="white">battery_full</v-icon>
+        </v-system-bar>
+
+        <p class="text-caption text-medium-emphasis mb-2">Window system bar</p>
+        <v-system-bar window color="surface" rounded="lg">
+          <v-icon>email</v-icon>
+          <span class="text-caption ml-1">New message from Alex</span>
+          <v-spacer />
+          <v-icon>remove</v-icon>
+          <v-icon>check_box_outline_blank</v-icon>
+          <v-icon>close</v-icon>
+        </v-system-bar>
+      </v-container>
+    `,
+  }),
+}
+
+export const AppBar: Story = {
+  render: () => ({
+    data: () => ({ drawer: false }),
+    template: `
+      <div style="height:280px; position:relative;">
+        <v-app-bar color="surface" elevation="0" border="b">
+          <v-app-bar-nav-icon @click="drawer = !drawer" />
+          <v-toolbar-title class="font-weight-semibold text-primary">EP Design System</v-toolbar-title>
+          <v-spacer />
+          <v-btn icon="search" variant="text" />
+          <v-btn icon="notifications_none" variant="text">
+            <v-badge color="error" content="3" floating>
+              <v-icon>notifications_none</v-icon>
+            </v-badge>
+          </v-btn>
+          <v-avatar color="primary" size="36" class="ml-2" style="cursor:pointer;">
+            <span class="text-caption font-weight-bold text-white">JG</span>
+          </v-avatar>
+        </v-app-bar>
+
+        <v-navigation-drawer v-model="drawer" temporary>
+          <v-list-item
+            prepend-icon="palette"
+            title="EP Design System"
+            subtitle="v1.0"
+            nav
+          />
+          <v-divider />
+          <v-list nav>
+            <v-list-item prepend-icon="home" title="Overview" value="overview" color="primary" />
+            <v-list-item prepend-icon="palette" title="Colors" value="colors" color="primary" />
+            <v-list-item prepend-icon="font_download" title="Typography" value="typography" color="primary" />
+            <v-list-item prepend-icon="ads_click" title="Components" value="components" color="primary" active />
+            <v-list-item prepend-icon="grid_view" title="Templates" value="templates" color="primary" />
+          </v-list>
+        </v-navigation-drawer>
+      </div>
+    `,
   }),
 }

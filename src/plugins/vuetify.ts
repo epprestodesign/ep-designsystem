@@ -1,6 +1,7 @@
 import 'vuetify/styles'
-import '@mdi/font/css/materialdesignicons.css'
+import 'material-icons/iconfont/material-icons.css'
 import { createVuetify } from 'vuetify'
+import { aliases, md } from 'vuetify/iconsets/md'
 import * as components from 'vuetify/components'
 import * as labsComponents from 'vuetify/labs/components'
 import * as directives from 'vuetify/directives'
@@ -8,6 +9,11 @@ import * as directives from 'vuetify/directives'
 export default createVuetify({
   components: { ...components, ...labsComponents },
   directives,
+  icons: {
+    defaultSet: 'md',
+    aliases,
+    sets: { md },
+  },
   theme: {
     defaultTheme: 'epLight',
     themes: {
